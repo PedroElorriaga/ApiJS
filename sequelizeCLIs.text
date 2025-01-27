@@ -1,3 +1,7 @@
-npx sequelize migration:create --name=nome_tabela   -> Para criar um arquivo de configuração de migration database/migrations
+npx sequelize migration:create --name NomeDaMigracao    -> Para criar um arquivo de configuração de migration database/migrations
 
-npx sequelize db:migrate    -> Para fazer a migração para a base de dados
+npx sequelize db:migrate   --name NomeDaMigracao   -> Para fazer a migração para a base de dados
+
+npx sequelize db:migrate:undo --name NomeDaMigracao     -> Desfaz a ultima migração
+
+Para fazer um update de uma migration ja criada, leia esta documentação https://medium.com/@anayooleru/modifying-an-existing-sequelize-migration-7ec206ce2b92

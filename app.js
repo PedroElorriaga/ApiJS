@@ -1,5 +1,6 @@
 import express from 'express';
-import home from './src/routes/home';
+import aluno from './src/routes/aluno';
+import usuario from './src/routes/usuario';
 import dotenv from 'dotenv';
 import './src/database'
 
@@ -18,7 +19,8 @@ class App {
   };
 
   routes() {
-    this.app.use('/', home);
+    this.app.use('/alunos', aluno);
+    this.app.use('/usuarios', usuario);
   };
 }
 
