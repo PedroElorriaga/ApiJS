@@ -8,7 +8,7 @@ class AlunoController {
       );
       res.status(200).json(novoAluno);
     } catch (err) {
-      console.log(err)
+      console.log(err);
       res.status(401).json('Erro');
     }
   };
