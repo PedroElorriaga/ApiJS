@@ -8,6 +8,9 @@ export default class Usuario extends Model {
       username: {
         type: Sequelize.STRING,
         defaultValue: '',
+        unique: {
+          msg: 'O username ja está cadastrado em outro usuário'
+        },
         validate: {
           len: {
             args: [1, 255],
@@ -19,7 +22,7 @@ export default class Usuario extends Model {
         type: Sequelize.STRING,
         defaultValue: '',
         unique: {
-          msg: 'O email ja existe'
+          msg: 'O email ja está cadastrado em outro usuário'
         },
         validate: {
           isEmail: {
@@ -44,6 +47,9 @@ export default class Usuario extends Model {
       cpf: {
         type: Sequelize.STRING,
         defaultValue: '',
+        unique: {
+          msg: 'O CPF ja está cadastrado em outro usuário'
+        },
         validate: {
           len: {
             args: [11, 11],
@@ -62,6 +68,6 @@ export default class Usuario extends Model {
       user.password_hash = await bcryptjs.hash(user.password, 8);
     });
 
-    return this
+    return this;
   }
 };

@@ -8,6 +8,7 @@ export default [
   pluginJs.configs.recommended,
   {
     rules: {
+      "semi": ["error", "always"]
     }
   }
 ];
