@@ -41,10 +41,10 @@ class UsuarioController {
   async delete(req, res) {
     try {
       const usuario = await Usuario.findOne({
-        where: { 'id': req.params.id }
+        where: { 'id': req.idUsuario }
       });
-      if (!usuario) return res.status(200).json('Nenhum usuário encontrado!');
-      await Usuario.destroy({ where: { 'id': usuario.id } });
+      if (!usuario) return res.status(401).json('Nenhum usuário encontrado!');
+      await Usuario.destroy({ where: { 'id': req.idUsuario } });
       return res.status(200).json('Usuário deletado com sucesso!');
     } catch (err) {
       console.log(err);
@@ -54,14 +54,14 @@ class UsuarioController {
   async update(req, res) {
     try {
       const usuario = await Usuario.findOne({
-        where: { 'id': req.params.id }
+        where: { 'id': req.idUsuario }
       });
-      if (!usuario) return res.status(201).json('Usuário não existe!');
+      if (!usuario) return res.status(401).json('Usuário não existe!');
       const keys = Object.keys(req.body);
       for (const key of keys) {
         await Usuario.update(
           { [key]: req.body[key] },
-          { where: { 'id': req.params.id } }
+          { where: { 'id': req.idUsuario } }
         );
       }
       return res.status(200).json('Usuário atualizado com sucesso!');

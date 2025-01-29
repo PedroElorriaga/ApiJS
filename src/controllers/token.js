@@ -25,7 +25,9 @@ class TokenController {
       const token = jsonWebToken.sign({ 'id': usuario_db.id, email }, process.env.TOKEN_SECRET, {
         expiresIn: process.env.TOKEN_EXPIRATION
       });
-      return res.status(200).json({ token });
+      console.log(token);
+      req.headers.authorization = `Bearer ${token}`;
+      return res.status(200).json('Usuário autenticado');
     } catch (err) {
       res.status(401).json(`Erro: ${err}`);
     }
