@@ -2,6 +2,7 @@ import express from 'express';
 import aluno from './src/routes/aluno';
 import usuario from './src/routes/usuario';
 import home from './src/routes/home';
+import token from './src/routes/token';
 import dotenv from 'dotenv';
 import './src/database';
 
@@ -23,6 +24,7 @@ class App {
     this.app.use('/', home);
     this.app.use('/alunos', aluno);
     this.app.use('/usuarios', usuario);
+    this.app.use('/auth', token);
   };
 }
 

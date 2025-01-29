@@ -70,4 +70,8 @@ export default class Usuario extends Model {
 
     return this;
   }
+
+  validacaoPassword(password, password_hash) {
+    return bcryptjs.compare(password, password_hash);
+  }
 };
