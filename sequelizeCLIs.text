@@ -9,3 +9,5 @@ Para fazer um update de uma migration ja criada, leia esta documentação https:
 npx sequelize seed:generate --name usuarios         -> Cria um arquivo de configuração dos seeds
 
 npx sequelize db:seed:all      -> Faz a migração dos seeds para a base de dados
+
+npx sequelize db:seed --seed NomeDaSeed      -> Migrar um seed especifica de base de dados

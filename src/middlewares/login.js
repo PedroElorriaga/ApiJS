@@ -8,9 +8,9 @@ export default (req, res, next) => {
     const { authorization } = req.headers;
     if (!authorization) return res.status(401).json('Login necessario');
     const [, token] = authorization.split(' ');
-    const { id, email } = jsonWebToken.verify(token, process.env.TOKEN_SECRET);
+    const { id_usuario, email } = jsonWebToken.verify(token, process.env.TOKEN_SECRET);
     if (!email) return res.status(401).json('Credenciais inválidas');
-    req.idUsuario = id;
+    req.idUsuario = id_usuario;
     req.emailUsuario = email;
     return next();
   } catch (err) {

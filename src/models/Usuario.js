@@ -5,6 +5,11 @@ import bcryptjs from 'bcryptjs';
 export default class Usuario extends Model {
   static init(sequelize) {
     super.init({
+      // DECLAREI A PRIMARY KEY, PQ O SEQUELIZE RECONHECE POR PADRAO SOMENTE O "id"
+      id_usuario: {
+        type: Sequelize.INTEGER,
+        primaryKey: true
+      },
       username: {
         type: Sequelize.STRING,
         defaultValue: '',

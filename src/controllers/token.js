@@ -22,7 +22,7 @@ class TokenController {
       if (!(await usuario.validacaoPassword(password, usuario_db.password_hash))) {
         return res.status(401).json('Credenciais inválidas');
       }
-      const token = jsonWebToken.sign({ 'id': usuario_db.id, email }, process.env.TOKEN_SECRET, {
+      const token = jsonWebToken.sign({ 'id_usuario': usuario_db.id_usuario, email }, process.env.TOKEN_SECRET, {
         expiresIn: process.env.TOKEN_EXPIRATION
       });
       console.log(token);
