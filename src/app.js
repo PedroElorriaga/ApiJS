@@ -1,10 +1,10 @@
 import express from 'express';
-import aluno from './src/routes/aluno';
-import usuario from './src/routes/usuario';
-import home from './src/routes/home';
-import token from './src/routes/token';
+import aluno from './routes/aluno';
+import usuario from './routes/usuario';
+import home from './routes/home';
+import token from './routes/token';
 import dotenv from 'dotenv';
-import './src/database';
+import './database';
 
 dotenv.config();
 
