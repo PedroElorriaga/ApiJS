@@ -45,3 +45,5 @@ Decimo - agora vamos adicionar o repositório remoto no ambiente de desenvolvime
 Decimo Primeiro - agora é subir para o servidor da mesma forma que sobe no github "git push origin main:main"
 
 TESTE - execute o comando ./hooks/post-receive para ver se retornara a mensagem de exito
+
+a
